@@ -130,6 +130,10 @@ object PublishPomXml : BuildType({
         root(DslContext.settingsRoot, "+:pom.xml", "+:many-small-files => small-files-directory")
     }
 
+    failureConditions {
+        errorMessage = true
+    }
+
     features {
         vcsLabeling {
             vcsRootId = "${DslContext.settingsRoot.id}"
