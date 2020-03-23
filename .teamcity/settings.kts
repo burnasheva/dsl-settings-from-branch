@@ -124,7 +124,7 @@ object OnlyArtifactsDependency : BuildType({
 object PublishPomXml : BuildType({
     name = "publish pom.xml"
 
-    artifactRules = "pom.xml"
+    artifactRules = "pom.xml => sub_directory"
 
     vcs {
         root(DslContext.settingsRoot, "+:pom.xml", "+:many-small-files => small-files-directory")
