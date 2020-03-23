@@ -132,7 +132,7 @@ object PublishPomXml : BuildType({
 
     requirements {
         exists("env.CommonProgramW6432")
-//        contains("teamcity.agent.name", "Mac")
+        contains("env.COMPUTERNAME", "NBURN-SERV2019")
     }
 
     vcs {
