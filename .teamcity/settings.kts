@@ -130,8 +130,12 @@ object PublishPomXml : BuildType({
         param("teamcity.internal.versionedSettings.reportInapplicable.vcsRoots", "FAILURE")
     }
 
+    requirements {
+        contains("teamcity.agent.name", "Mac")
+    }
+
     vcs {
-        root(DslContext.settingsRoot, "+:pom.xml", "+:many-small-files => small-files-directory-2")
+        root(DslContext.settingsRoot, "+:pom.xml", "+:many-small-files => small-files-directory")
     }
 
     features {
