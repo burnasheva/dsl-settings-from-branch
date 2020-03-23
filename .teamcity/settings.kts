@@ -127,7 +127,7 @@ object PublishPomXml : BuildType({
     artifactRules = "pom.xml => sub_directory"
 
     vcs {
-        root(DslContext.settingsRoot, "+:pom.xml", "+:many-small-files => small-files-directory")
+        root(DslContext.settingsRoot, "+:pom.xml", "+:many-small-files => small-files-directory-2")
     }
 
     features {
