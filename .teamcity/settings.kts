@@ -130,6 +130,10 @@ object PublishPomXml : BuildType({
         root(DslContext.settingsRoot, "+:pom.xml", "+:many-small-files => small-files-directory")
     }
 
+    requirements {
+        contains("teamcity.agent.name", "Mac")
+    }
+
     failureConditions {
         errorMessage = true
     }
