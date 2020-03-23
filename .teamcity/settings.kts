@@ -131,7 +131,8 @@ object PublishPomXml : BuildType({
     }
 
     requirements {
-        contains("teamcity.agent.name", "Mac")
+        exists("CommonProgramW6432")
+//        contains("teamcity.agent.name", "Mac")
     }
 
     vcs {
