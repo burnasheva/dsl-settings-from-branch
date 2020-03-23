@@ -116,7 +116,7 @@ object OnlyArtifactsDependency : BuildType({
         artifacts(PublishPomXml) {
             buildRule = lastFinished()
             cleanDestination = true
-            artifactRules = "pom.xml => artifact"
+            artifactRules = "pom.xml => artifact_branch"
         }
     }
 })
