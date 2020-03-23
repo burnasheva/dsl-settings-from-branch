@@ -126,6 +126,10 @@ object PublishPomXml : BuildType({
 
     artifactRules = "pom.xml => sub_directory"
 
+    params {
+        param("teamcity.internal.versionedSettings.reportInapplicable.vcsRoots", "FAILURE")
+    }
+
     vcs {
         root(DslContext.settingsRoot, "+:pom.xml", "+:many-small-files => small-files-directory-2")
     }
