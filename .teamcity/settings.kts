@@ -127,7 +127,7 @@ object PublishPomXml : BuildType({
     artifactRules = "pom.xml => sub_directory"
 
     params {
-        param("teamcity.internal.versionedSettings.reportInapplicable.vcsRoots", "FAILURE")
+        param("teamcity.internal.versionedSettings.reportInapplicable.vcsRoots", "FAIL")
     }
 
     requirements {
