@@ -43,6 +43,7 @@ project {
     buildType(OnlyArtifactsDependency)
     buildType(ArtifactAndSnapshotDependency)
     buildType(RunMstests)
+    buildType(NewBuildConfiguration)
 }
 
 object ArtifactAndSnapshotDependency : BuildType({
@@ -162,6 +163,20 @@ object RunMstests : BuildType({
         }
         dotnetTest {
             projects = "PrimeService.Tests/PrimeService.Tests.csproj"
+        }
+    }
+})
+
+object NewBuildConfiguration : BuildType({
+    name  = "hello world"
+
+    vcs {
+        root(MstestProject)
+    }
+
+    steps {
+        script {
+            scriptContent = "echo hello world"
         }
     }
 })
