@@ -170,7 +170,7 @@ object SimpleLsInWorkingDirectory : BuildType({
     name = "simple ls in working directory"
 
     vcs {
-        root(DslContext.settingsRoot)
+        root(MstestProject)
     }
 
     steps {
