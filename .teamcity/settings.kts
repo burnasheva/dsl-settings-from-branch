@@ -67,7 +67,7 @@ object ArtifactAndSnapshotDependency : BuildType({
 
             artifacts {
                 cleanDestination = true
-                artifactRules = "pom.xml => artifacts"
+                artifactRules = "sub_directory_2/pom.xml => artifacts"
             }
         }
     }
@@ -77,7 +77,7 @@ object ComposeBuildConfiguration : BuildType({
     name = "compose build configuration"
 
     enablePersonalBuilds = false
-    type = BuildTypeSettings.Type.COMPOSITE
+    type = Type.COMPOSITE
     detectHangingBuilds = false
 
     vcs {
@@ -124,11 +124,11 @@ object OnlyArtifactsDependency : BuildType({
 object PublishPomXml : BuildType({
     name = "publish pom.xml"
 
-    artifactRules = "pom.xml => sub_directory"
+    artifactRules = "pom.xml => sub_directory_2"
 
-    params {
-        param("teamcity.internal.versionedSettings.reportInapplicable.vcsRoots", "FAIL")
-    }
+//    params {
+//        param("teamcity.internal.versionedSettings.reportInapplicable.vcsRoots", "FAIL")
+//    }
 
     requirements {
         exists("env.CommonProgramW6432")
@@ -176,6 +176,7 @@ object SimpleLsInWorkingDirectory : BuildType({
 
     vcs {
         root(DslContext.settingsRoot)
+
     }
 
     steps {
@@ -187,6 +188,6 @@ object SimpleLsInWorkingDirectory : BuildType({
 
 object MstestProject : GitVcsRoot({
     name = "mstest project"
-    url = "https://github.com/burnasheva/mstest_dotnet3.git"
+    url = "https://github.com/burnasheva/mstest_dotnet3"
     branchSpec = "+:refs/heads/*"
 })
