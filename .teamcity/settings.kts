@@ -192,7 +192,7 @@ object SimpleTemplateWithRequirement : Template({
 })
 
 object SimpleTemplateWithRequirementCopy : Template({
-    name = "Simple Template with requirement"
+    name = "Simple Template with requirement (branch)"
 
     params {
         param("agent.host.requirement", "nburn-serv2019-empty")
