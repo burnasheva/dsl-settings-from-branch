@@ -181,8 +181,12 @@ object SimpleLsInWorkingDirectory : BuildType({
 object SimpleTemplateWithRequirement : Template({
     name = "Simple Template with requirement"
 
+    params {
+        param("agent.host.requirement", "munit-367.labs.intellij.net")
+    }
+
     requirements {
-        equals("teamcity.agent.hostname", "munit-367.labs.intellij.net")
+        equals("teamcity.agent.hostname", "%agent.host.requirement%")
     }
 })
 
