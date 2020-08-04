@@ -43,9 +43,9 @@ project {
     buildType(OnlyArtifactsDependency)
     buildType(ArtifactAndSnapshotDependency)
     buildType(RunMstests)
-    buildType(NewBuildConfiguration)
 
     template(SimpleTemplateWithRequirement)
+    template(SimpleTemplateWithRequirementCopy)
 }
 
 object ArtifactAndSnapshotDependency : BuildType({
@@ -133,10 +133,6 @@ object PublishPomXml : BuildType({
         root(DslContext.settingsRoot, "+:pom.xml", "+:many-small-files => small-files-directory")
     }
 
-    failureConditions {
-        errorMessage = true
-    }
-
     features {
         vcsLabeling {
             vcsRootId = "${DslContext.settingsRoot.id}"
@@ -169,25 +165,11 @@ object RunMstests : BuildType({
     }
 })
 
-object NewBuildConfiguration : BuildType({
-    name  = "hello world"
-
-    vcs {
-        root(MstestProject)
-    }
-
-    steps {
-        script {
-            scriptContent = "echo hello world"
-        }
-    }
-})
-
 object SimpleLsInWorkingDirectory : BuildType({
     name = "simple ls in working directory"
 
     vcs {
-        root(MstestProject)
+        root(DslContext.settingsRoot)
     }
 
     steps {
@@ -208,6 +190,19 @@ object SimpleTemplateWithRequirement : Template({
         equals("teamcity.agent.hostname", "%agent.host.requirement%")
     }
 })
+
+object SimpleTemplateWithRequirementCopy : Template({
+    name = "Simple Template with requirement"
+
+    params {
+        param("agent.host.requirement", "nburn-serv2019-empty")
+    }
+
+    requirements {
+        equals("teamcity.agent.hostname", "%agent.host.requirement%")
+    }
+})
+
 
 object MstestProject : GitVcsRoot({
     name = "mstest project"
