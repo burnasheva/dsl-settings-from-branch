@@ -126,7 +126,7 @@ object OnlyArtifactsDependency : BuildType({
 
 object PublishPomXml : BuildType({
     name = "publish pom.xml"
-    templates(SimpleTemplateWithRequirement)
+    templates(SimpleTemplateWithRequirementCopy)
     artifactRules = "pom.xml"
 
     vcs {
