@@ -45,6 +45,7 @@ project {
     buildType(RunMstests)
 
     template(SimpleTemplateWithRequirement)
+    template(SimpleTemplateWithRequirementCopy)
 }
 
 object ArtifactAndSnapshotDependency : BuildType({
@@ -183,6 +184,18 @@ object SimpleTemplateWithRequirement : Template({
 
     params {
         param("agent.host.requirement", "munit-367.labs.intellij.net")
+    }
+
+    requirements {
+        equals("teamcity.agent.hostname", "%agent.host.requirement%")
+    }
+})
+
+object SimpleTemplateWithRequirementCopy : Template({
+    name = "Simple Template with requirement"
+
+    params {
+        param("agent.host.requirement", "nburn-serv2019-empty")
     }
 
     requirements {
