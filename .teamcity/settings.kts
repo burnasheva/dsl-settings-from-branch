@@ -46,6 +46,10 @@ project {
 
     template(SimpleTemplateWithRequirement)
     template(SimpleTemplateWithRequirementCopy)
+
+    params {
+        param("agent.host.requirement", "munit-367.labs.intellij.net")
+    }
 }
 
 object ArtifactAndSnapshotDependency : BuildType({
