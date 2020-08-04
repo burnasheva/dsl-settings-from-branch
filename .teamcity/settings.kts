@@ -44,6 +44,8 @@ project {
     buildType(ArtifactAndSnapshotDependency)
     buildType(RunMstests)
     buildType(NewBuildConfiguration)
+
+    template(SimpleTemplateWithRequirement)
 }
 
 object ArtifactAndSnapshotDependency : BuildType({
@@ -192,6 +194,14 @@ object SimpleLsInWorkingDirectory : BuildType({
         script {
             scriptContent = "ls -a"
         }
+    }
+})
+
+object SimpleTemplateWithRequirement : Template({
+    name = "Simple Template with requirement"
+
+    requirements {
+        equals("teamcity.agent.hostname", "munit-367.labs.intellij.net")
     }
 })
 
