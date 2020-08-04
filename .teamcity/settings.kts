@@ -186,6 +186,7 @@ object SimpleTemplateWithRequirement : Template({
     }
 })
 
+
 object MstestProject : GitVcsRoot({
     name = "mstest project"
     url = "https://github.com/burnasheva/mstest_dotnet3.git"
