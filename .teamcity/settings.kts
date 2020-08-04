@@ -43,6 +43,8 @@ project {
     buildType(OnlyArtifactsDependency)
     buildType(ArtifactAndSnapshotDependency)
     buildType(RunMstests)
+
+    template(SimpleTemplateWithRequirement)
 }
 
 object ArtifactAndSnapshotDependency : BuildType({
@@ -67,7 +69,7 @@ object ArtifactAndSnapshotDependency : BuildType({
 
             artifacts {
                 cleanDestination = true
-                artifactRules = "sub_directory_2/pom.xml => artifacts"
+                artifactRules = "pom.xml => artifacts"
             }
         }
     }
@@ -77,7 +79,7 @@ object ComposeBuildConfiguration : BuildType({
     name = "compose build configuration"
 
     enablePersonalBuilds = false
-    type = Type.COMPOSITE
+    type = BuildTypeSettings.Type.COMPOSITE
     detectHangingBuilds = false
 
     vcs {
@@ -116,7 +118,7 @@ object OnlyArtifactsDependency : BuildType({
         artifacts(PublishPomXml) {
             buildRule = lastFinished()
             cleanDestination = true
-            artifactRules = "pom.xml => artifact_branch"
+            artifactRules = "pom.xml => artifact"
         }
     }
 })
@@ -124,19 +126,10 @@ object OnlyArtifactsDependency : BuildType({
 object PublishPomXml : BuildType({
     name = "publish pom.xml"
 
-    artifactRules = "pom.xml => sub_directory_2"
-
-//    params {
-//        param("teamcity.internal.versionedSettings.reportInapplicable.vcsRoots", "FAIL")
-//    }
-
-    requirements {
-        exists("env.CommonProgramW6432")
-        contains("env.COMPUTERNAME", "NBURN-SERV2019")
-    }
+    artifactRules = "pom.xml"
 
     vcs {
-        root(DslContext.settingsRoot, "+:pom.xml", "+:many-small-files => small-files-directory-2")
+        root(DslContext.settingsRoot, "+:pom.xml", "+:many-small-files => small-files-directory")
     }
 
     features {
@@ -176,7 +169,6 @@ object SimpleLsInWorkingDirectory : BuildType({
 
     vcs {
         root(DslContext.settingsRoot)
-
     }
 
     steps {
@@ -186,8 +178,16 @@ object SimpleLsInWorkingDirectory : BuildType({
     }
 })
 
+object SimpleTemplateWithRequirement : Template({
+    name = "Simple Template with requirement"
+
+    requirements {
+        equals("teamcity.agent.hostname", "munit-367.labs.intellij.net")
+    }
+})
+
 object MstestProject : GitVcsRoot({
     name = "mstest project"
-    url = "https://github.com/burnasheva/mstest_dotnet3"
+    url = "https://github.com/burnasheva/mstest_dotnet3.git"
     branchSpec = "+:refs/heads/*"
 })
