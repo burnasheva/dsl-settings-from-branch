@@ -16,7 +16,7 @@ create(DslContext.projectId, BuildType({
     name = "Simple .NET Build"
 
     vcs {
-        root(AbsoluteId("HttpsGithubComBurnashevaMstestDotnet3refsHeadsMaster"))
+        root(AbsoluteId("HttpsGithubComBurnashevaMstestDotnet3refsHeadsMaster_2"))
     }
 
     steps {
