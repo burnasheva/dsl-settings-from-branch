@@ -101,7 +101,7 @@ object ComposeBuildConfiguration : BuildType({
     dependencies {
         snapshot(ArtifactAndSnapshotDependency) {
         }
-        snapshot(OnlyArtifactsDependency) {
+        snapshot(OnlyArtifactsDependency_) {
         }
         snapshot(RunMstests) {
         }
@@ -112,7 +112,7 @@ object ComposeBuildConfiguration : BuildType({
     }
 })
 
-object OnlyArtifactsDependency : BuildType({
+object OnlyArtifactsDependency_ : BuildType({
     name = "only artifacts dependency"
 
     vcs {
