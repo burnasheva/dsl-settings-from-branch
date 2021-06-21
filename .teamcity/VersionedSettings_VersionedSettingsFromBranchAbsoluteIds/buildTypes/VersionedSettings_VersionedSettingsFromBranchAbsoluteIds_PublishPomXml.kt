@@ -10,6 +10,7 @@ object VersionedSettings_VersionedSettingsFromBranchAbsoluteIds_PublishPomXml : 
     templates(VersionedSettings_VersionedSettingsFromBranchAbsoluteIds_SimpleTemplateWithRequirement)
     uuid = "77fa6bd8-fc31-4a85-a7a2-cded9279fb46"
     name = "publish pom.xml"
+    id("VersionedSettings_VersionedSettingsFromBranchAbsoluteIds_PublishPomXml")
 
     artifactRules = "pom.xml"
 
