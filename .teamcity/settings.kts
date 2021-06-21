@@ -42,7 +42,7 @@ project {
     buildType(ComposeBuildConfiguration)
     buildType(OnlyArtifactsDependency_)
     buildType(ArtifactAndSnapshotDependency)
-    buildType(RunMstests)
+    buildType(RunMstests_)
 
     template(SimpleTemplateWithRequirement)
     template(SimpleTemplateWithRequirementCopy)
@@ -103,7 +103,7 @@ object ComposeBuildConfiguration : BuildType({
         }
         snapshot(OnlyArtifactsDependency_) {
         }
-        snapshot(RunMstests) {
+        snapshot(RunMstests_) {
         }
         artifacts(PublishPomXml) {
             cleanDestination = true
@@ -152,7 +152,7 @@ object PublishPomXml : BuildType({
     }
 })
 
-object RunMstests : BuildType({
+object RunMstests_ : BuildType({
     name = "run mstests"
 
     vcs {
