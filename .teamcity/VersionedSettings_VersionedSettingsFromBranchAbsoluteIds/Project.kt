@@ -23,7 +23,7 @@ object Project : Project({
     buildType(VersionedSettings_VersionedSettingsFromBranchAbsoluteIds_SimpleLsInWorkingDirectory)
     buildType(VersionedSettings_VersionedSettingsFromBranchAbsoluteIds_ArtifactAndSnapshotDependency)
     buildType(VersionedSettings_VersionedSettingsFromBranchAbsoluteIds_RunMstests)
-    buildType(VersionedSettings_VersionedSettingsFromBranchAbsoluteIds_OnlyArtifactsDependency)
+    buildType(VersionedSettings_VersionedSettingsFromBranchAbsoluteIds_OnlyArtifactsDependency_)
 
     template(VersionedSettings_VersionedSettingsFromBranchAbsoluteIds_SimpleTemplateWithRequirement)
     template(VersionedSettings_VersionedSettingsFromBranchAbsoluteIds_SimpleTemplateWithRequirementCopy)

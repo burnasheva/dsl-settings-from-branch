@@ -25,7 +25,7 @@ object VersionedSettings_VersionedSettingsFromBranchAbsoluteIds_ComposeBuildConf
     dependencies {
         snapshot(VersionedSettings_VersionedSettingsFromBranchAbsoluteIds_ArtifactAndSnapshotDependency) {
         }
-        snapshot(VersionedSettings_VersionedSettingsFromBranchAbsoluteIds_OnlyArtifactsDependency) {
+        snapshot(VersionedSettings_VersionedSettingsFromBranchAbsoluteIds_OnlyArtifactsDependency_) {
         }
         snapshot(VersionedSettings_VersionedSettingsFromBranchAbsoluteIds_RunMstests) {
         }
