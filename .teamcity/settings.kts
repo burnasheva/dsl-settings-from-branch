@@ -40,7 +40,7 @@ project {
     buildType(SimpleLsInWorkingDirectory)
     buildType(PublishPomXml)
     buildType(ComposeBuildConfiguration)
-    buildType(OnlyArtifactsDependency)
+    buildType(OnlyArtifactsDependency_)
     buildType(ArtifactAndSnapshotDependency)
     buildType(RunMstests)
 
