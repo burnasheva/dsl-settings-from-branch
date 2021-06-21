@@ -191,7 +191,7 @@ object SimpleTemplateWithRequirement : Template({
     }
 
     requirements {
-        equals("teamcity.agent.hostname", "%agent.host.requirement%")
+        //equals("teamcity.agent.hostname", "%agent.host.requirement%")
     }
 })
 
@@ -203,7 +203,7 @@ object SimpleTemplateWithRequirementCopy : Template({
     }
 
     requirements {
-        equals("teamcity.agent.hostname", "%agent.host.requirement%")
+        //equals("teamcity.agent.hostname", "%agent.host.requirement%")
     }
 })
 
